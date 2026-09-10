@@ -1,1 +1,206 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(135deg, #fff3c4, #ffd6a5);
+  color: #4a2c18;
+}
+
+.container {
+  width: 90%;
+  max-width: 550px;
+  padding: 40px 25px;
+
+  text-align: center;
+
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 25px;
+
+  box-shadow: 0 15px 40px rgba(90, 50, 10, 0.2);
+}
+
+h1 {
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: #795548;
+  margin-bottom: 35px;
+}
+
+/* Área do biscoito */
+
+.cookie-area {
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cookie {
+  position: relative;
+  width: 150px;
+  height: 100px;
+
+  cursor: pointer;
+
+  transition: transform 0.3s ease;
+}
+
+.cookie:hover {
+  transform: scale(1.08) rotate(3deg);
+}
+
+/* Duas partes do biscoito */
+
+.cookie-left,
+.cookie-right {
+  position: absolute;
+  top: 20px;
+
+  width: 90px;
+  height: 65px;
+
+  background: #e7a43b;
+
+  border: 5px solid #c77c22;
+
+  box-shadow: inset 0 -8px 0 rgba(120, 65, 15, 0.15);
+}
+
+.cookie-left {
+  left: 5px;
+
+  border-radius: 70% 25% 60% 70%;
+
+  transform: rotate(25deg);
+}
+
+.cookie-right {
+  right: 5px;
+
+  border-radius: 25% 70% 70% 60%;
+
+  transform: rotate(-25deg);
+}
+
+/* Animação ao quebrar */
+
+.cookie.break {
+  animation: breakCookie 0.6s ease;
+}
+
+@keyframes breakCookie {
+  0% {
+    transform: scale(1);
+  }
+
+  30% {
+    transform: scale(1.15) rotate(-8deg);
+  }
+
+  60% {
+    transform: scale(0.95) rotate(8deg);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Botão */
+
+button {
+  border: none;
+  padding: 15px 30px;
+
+  font-size: 1rem;
+  font-weight: bold;
+
+  color: white;
+  background: #d88924;
+
+  border-radius: 30px;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+
+  box-shadow: 0 5px 0 #ad6518;
+}
+
+button:hover {
+  background: #c4771d;
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(3px);
+  box-shadow: 0 2px 0 #ad6518;
+}
+
+/* Mensagem */
+
+.message-box {
+  min-height: 100px;
+
+  margin-top: 30px;
+  padding: 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #fff8e1;
+
+  border: 2px dashed #e0a13a;
+  border-radius: 15px;
+
+  opacity: 0;
+  transform: translateY(10px);
+
+  transition: all 0.4s ease;
+}
+
+.message-box.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#message {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+.counter {
+  margin-top: 20px;
+  font-size: 0.85rem;
+  color: #8d6e63;
+}
+
+/* Responsividade */
+
+@media (max-width: 500px) {
+  h1 {
+    font-size: 1.9rem;
+  }
+
+  .container {
+    padding: 30px 20px;
+  }
+
+  .cookie-area {
+    height: 160px;
+  }
+}
